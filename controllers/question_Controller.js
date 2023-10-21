@@ -4,7 +4,7 @@ const Option = require('../models/options');
 
 
 module.exports.create = async function(req,res){
-    console.log(req.body);
+    // console.log(req.body);
     const question = await Question.create(req.body);
     question.save();
     return res.send(question);
@@ -13,7 +13,7 @@ module.exports.create = async function(req,res){
 
 
 module.exports.showDetails = async function(req,res){
-    console.log(req.params.id);
+    // console.log(req.params.id);
     const question = await Question.findById(req.params.id).populate('options');
     if(question){
         res.send(question);

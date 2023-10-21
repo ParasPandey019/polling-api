@@ -3,7 +3,7 @@ const Question = require('../models/questions');
 
 
 module.exports.create = async function(req,res){
-    console.log(req.body,req.params.id);
+    // console.log(req.body,req.params.id);
 
     const opt = await Option.create({
         option:req.body.content,
@@ -17,7 +17,7 @@ module.exports.create = async function(req,res){
     if(question){
         question.options.push(updateOpt);
         question.save();
-        console.log(question);
+        // console.log(question);
         res.send(question);
     }
     else{
@@ -26,12 +26,12 @@ module.exports.create = async function(req,res){
 }
 
 module.exports.addVote = async function(req,res){
-    console.log(req.params.id);
+    // console.log(req.params.id);
     const option = await Option.findByIdAndUpdate(req.params.id,{ $inc: { vote: 1 }});
 
     if(option){
         await option.save();
-        console.log(option);
+        // console.log(option);
         res.send(option);
     }
     else{
@@ -40,7 +40,7 @@ module.exports.addVote = async function(req,res){
 }
 
 module.exports.delete = async function(req,res){
-    console.log('id',req.params.id);
+    // console.log('id',req.params.id);
     const option = await Option.findById(req.params.id);
 
     if(option){
@@ -50,7 +50,7 @@ module.exports.delete = async function(req,res){
 
         await Option.findByIdAndDelete(req.params.id);
 
-        console.log(question);
+        // console.log(question);
         res.send('option deleted');
     }
     else{
