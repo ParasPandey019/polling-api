@@ -22,6 +22,6 @@ $ http://localhost:8000
 ```
 
 ## Features
-* create new projects
-* add issues to the project of different types
-* filter issues based on type or author name
+* create question with multiple vote options
+* Add votes to questions
+* Delete particular question or option
